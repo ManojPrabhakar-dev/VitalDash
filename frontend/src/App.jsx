@@ -9,12 +9,12 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 
 function App() {
-  const user = useSelector((state) => state.user.currentUser);
+  const user = false; //useSelector((state) => state.user.currentUser);
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+        <Route path="/" element={user ? <Navigate to="/home" /> : <Login />} />
+        <Route path="/home" element={<Home />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
